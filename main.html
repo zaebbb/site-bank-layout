@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лига Банк</title>
+
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./fontawesome/css/font-awesome.min.css">
+
+    <script src="./scripts/slider.js" defer></script>
+    <script src="./scripts/tabs.js" defer></script>
+    <script src="./scripts/calculate.js" defer></script>
+    <script src="./scripts/scripts.js" defer></script>
+    <script src="./scripts/modal-auth.js" defer></script>
+</head>
+<body class="body">
+    <header class="header">
+        <a href="#" class="header__logo">
+            <img src="./images/logo_white.svg" alt="Logo Лига Банк" class="header__image">
+        </a>
+        <nav class="header__nav">
+            <ul class="header__list">
+                <li class="header__item">
+                    <a href="#services" class="header__link header__hover__link ">Услуги</a>
+                </li>
+                <li class="header__item">
+                    <a href="#calculate" class="header__link header__hover__link">Кредитный калькулятор</a>
+                </li>
+                <li class="header__item">
+                    <a href="#positions" class="header__link header__hover__link">Отделения</a>
+                </li>
+                <li class="header__item">
+                    <a href="#" class="header__link btn" onclick="toggleAuthModal()">Войти</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__bars" onclick="toggleMenu()">
+            <img src="./images/bars.png" alt="bars" class="header__bars--icon">
+        </div>
+    </header>
+
+    <div class="mobile__menu">
+        <nav class="header__nav">
+            <div class="header__close" onclick="toggleMenu()">
+                <img src="./images/close.png" alt="close menu" class="header__close--image">
+            </div>
+            <ul class="header__list">
+                <li class="header__item" onclick="toggleMenu()">
+                    <a href="#services" class="header__link header__hover__link ">Услуги</a>
+                </li>
+                <li class="header__item" onclick="toggleMenu()">
+                    <a href="#calculate" class="header__link header__hover__link">Кредитный калькулятор</a>
+                </li>
+                <li class="header__item" onclick="toggleMenu()">
+                    <a href="#positions" class="header__link header__hover__link">Отделения</a>
+                </li>
+                <li class="header__item" onclick="toggleMenu();toggleAuthModal()">
+                    <a href="#" class="header__link btn">Войти</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="content">
+        <section class="slider">
+            <div class="slider__main">
+                <img src="./images/slide_1.jpg" alt="image_1" class="slider__image">
+            </div>
+            <div class="slider__arrows">
+                <img class="slider__arrow arrow__left" src="./images/arrow_left.png">
+                <img class="slider__arrow arrow__right" src="./images/arrow_right.png">
+            </div>
+            <div class="slider__pagination">
+                <span class="slider__paginate"></span>
+                <span class="slider__paginate"></span>
+                <span class="slider__paginate"></span>
+            </div>
+            <div class="slider__buttons">
+                <a href="#calculate" class="slider__btn btn">Расчитать кредит</a>
+                <a href="#positions" class="slider__btn btn">Найти отделения</a>
+            </div>
+        </section>
+
+        <section class="services section__content" id="services">
+            <h1 class="section__heading">Услуги</h1>
+            <div class="services__tabs">
+                <span class="services__tab active">Вклады</span>
+                <span class="services__tab">Кредиты</span>
+                <span class="services__tab">Страхование</span>
+                <span class="services__tab">Онлайн-сервисы</span>
+            </div>
+            <div class="services__content"></div>
+        </section>
+
+        <section class="section__content calculate" id="calculate">
+            <h1 class="section__heading" >Кредитный калькулятор</h1>
+            <form class="form">
+                <h3 class="calculate__head">Переплата по кредиту составляет <span class="calculate__result">0 руб.</span></h3>
+                <h3 class="calculate__head">Ежемесячный платеж составляет <span class="calculate__everymount">0 руб.</span></h3>
+                <label class="form__label">
+                    <strong class="form__heading">Тип кредита</strong>
+                    <select class="form__input type__credit" onchange="calculate()" onselect="calculate()">
+                        <option selected value=".18">Потребительский</option>
+                        <option value=".096">Ипотека</option>
+                        <option value="0.035">Автокредит</option>
+                    </select>
+                </label>
+                <label class="form__label">
+                    <strong class="form__heading">Размер кредита (руб.)</strong>
+                    <input 
+                        type="number" 
+                        value="0" 
+                        class="form__input input__size" 
+                        oninput="calculate()"
+                    >
+                </label>
+                <label class="form__label">
+                    <strong class="form__heading">Срок кредита (кол-во месяцев)</strong>
+                    <input 
+                        type="number" 
+                        value="0" 
+                        class="form__input input__time"
+                        oninput="calculate()"
+                    >
+                </label>
+            </form>
+
+        </section>
+
+        <section class="section__content map" id="positions">
+            <h1 class="section__heading">Отделения Лига Банка</h1>
+            <div class="map__list">
+                <a class="map__item" href="#">
+                    <h3 class="map__heading">ДО «Артемовский»</h3>
+                    <p class="map__description">
+                        <strong>Адрес: </strong>
+                        <span>623780, Свердловская область, г. Артемовский, ул. Садовая, д. 12</span>
+                    </p>
+                    <p class="map__description">
+                        <strong>Режим работы: </strong>
+                        <span>пн-пт: 09:00-18:00 <br>сб, вс: выходной</span>
+                    </p>
+                </a>
+                <a class="map__item" href="#">
+                    <h3 class="map__heading">ДО «Артемовский»</h3>
+                    <p class="map__description">
+                        <strong>Адрес: </strong>
+                        <span>623780, Свердловская область, г. Артемовский, ул. Садовая, д. 12</span>
+                    </p>
+                    <p class="map__description">
+                        <strong>Режим работы: </strong>
+                        <span>пн-пт: 09:00-18:00 <br>сб, вс: выходной</span>
+                    </p>
+                </a>
+                <a class="map__item" href="#">
+                    <h3 class="map__heading">ДО «Артемовский»</h3>
+                    <p class="map__description">
+                        <strong>Адрес: </strong>
+                        <span>623780, Свердловская область, г. Артемовский, ул. Садовая, д. 12</span>
+                    </p>
+                    <p class="map__description">
+                        <strong>Режим работы: </strong>
+                        <span>пн-пт: 09:00-18:00 <br>сб, вс: выходной</span>
+                    </p>
+                </a>
+                <a class="map__item" href="#">
+                    <h3 class="map__heading">ДО «Артемовский»</h3>
+                    <p class="map__description">
+                        <strong>Адрес: </strong>
+                        <span>623780, Свердловская область, г. Артемовский, ул. Садовая, д. 12</span>
+                    </p>
+                    <p class="map__description">
+                        <strong>Режим работы: </strong>
+                        <span>пн-пт: 09:00-18:00 <br>сб, вс: выходной</span>
+                    </p>
+                </a>
+            </div>
+            <div class="map__iframe">
+                <img src="./images/map.png" alt="Карта заглушка" class="map__image">
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__block">
+            <a class="footer__logo" href="./main.html">
+                <img src="./images/logo.svg" alt="Logo" class="footer__image">
+            </a>
+            <div class="footer__content">
+                <p class="footer__description">Россия, Москва, 117997, ул. Вавилова, 19<br>© 1997—2022 ПАО Лига Банк.</p>
+            </div>
+            <div class="footer__content">
+                <p class="footer__description">Генеральная лицензия Банка России на осуществление банковских операций №1481 от 11.08.2015 г.</p>
+                <p class="footer__description">Информация о процентных ставках по договорам банковского вклада с физическими лицами</p>
+                <p class="footer__description">Информация, обязательная к размещению</p>
+                <p class="footer__description">Раскрытие информации о банке как о профессиональном участнике рынка ценных бумаг</p>
+            </div>
+        </div>
+
+        <div class="footer__block">
+            <h3 class="footer__heading">Меню</h3>
+            <ul class="footer__list list__menu">
+                <li class="footer__item">
+                    <a href="#services" class="footer__link">Услуги</a>
+                </li>
+                <li class="footer__item">
+                    <a href="#calculate" class="footer__link">Кредитный калькулятор</a>
+                </li>
+                <li class="footer__item">
+                    <a href="#positions" class="footer__link">Отделения</a>
+                </li>
+                <li class="footer__item">
+                    <a href="#" class="footer__link" onclick="toggleAuthModal()">Войти</a>
+                </li>
+            </ul>
+            <div class="footer__content">
+                <h3 class="footer__heading">Мы в соц. сетях</h3>
+                <ul class="footer__list list__social">
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">
+                            <i class="fas fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">
+                            <i class="fas fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">
+                            <i class="fas fa-youtube-play"></i>
+                        </a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">
+                            <i class="fas fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">
+                            <i class="fas fa-vk"></i>
+                        </a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">
+                            <i class="fas fa-odnoklassniki"></i>
+                        </a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">
+                            <i class="fas fa-paper-plane"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer__block">
+            <h3 class="footer__heading">Карты</h3>
+            <ul class="footer__list list__menu">
+                <li class="footer__item">
+                    <a href="#" class="footer__link">Кредиты</a>
+                </li>
+                <li class="footer__item">
+                    <a href="#" class="footer__link">Дебетовые карты</a>
+                </li>
+                <li class="footer__item">
+                    <a href="#" class="footer__link">Кредитные карты</a>
+                </li>
+            </ul>
+            <div class="footer__content">
+                <h3 class="footer__heading">Вложения</h3>
+                <ul class="footer__list list__menu">
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">Вклады</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">Курсы валют</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">Ипотека</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">Инвестиции</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer__block">
+            <h3 class="footer__heading">Действия</h3>
+            <ul class="footer__list list__menu">
+                <li class="footer__item">
+                    <a href="#" class="footer__link">Оплата услуг</a>
+                </li>
+                <li class="footer__item">
+                    <a href="#" class="footer__link">Переводы</a>
+                </li>
+                <li class="footer__item">
+                    <a href="#" class="footer__link">Страхование</a>
+                </li>
+                <li class="footer__item">
+                    <a href="#" class="footer__link">Офисы</a>
+                </li>
+                <li class="footer__item">
+                    <a href="#" class="footer__link">Банкоматы</a>
+                </li>
+            </ul>
+            <div class="footer__content">
+                <h3 class="footer__heading">Другое</h3>
+                <ul class="footer__list list__menu">
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">Самозанятым</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">Пенсионерам</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">Молодежи</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">Вопросы и ответы</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- modal -->
+
+    <div class="modal__window modal__auth">
+        <div class="window__content">
+            <h3 class="map__heading modal__heading heading__form">Авторизация</h3>
+            <form class="form form__auth" onsubmit="sendForm()">
+            <img src="./images/close.png" alt="close modal" class="modal__close" onclick="toggleAuthModal()">
+                <label class="form__label modal__auth">
+                    <strong class="form__heading">Ваше ФИО</strong>
+                    <input 
+                        type="text" 
+                        class="form__input input__name"
+                        oninput="validate('input__name','error__name','ФИО')"
+                    >
+                    <div class="error__text error__name"></div>
+                </label>
+                <label class="form__label">
+                    <strong class="form__heading">Ваш E-mail</strong>
+                    <input 
+                        type="email" 
+                        class="form__input input__email" 
+                        oninput="validate('input__email','error__email','E-mail')"
+                    >
+                    <div class="error__text error__email"></div>
+                </label>
+                <label class="form__label">
+                    <strong class="form__heading">Ваш телефон</strong>
+                    <input 
+                        type="number" 
+                        class="form__input input__phone"
+                        oninput="validate('input__phone','error__phone','Телефон')"
+                    >
+                    <div class="error__text error__phone"></div>
+                </label>
+
+                <input type="submit" value="Авторизоваться" class="form__btn btn" onclick="sendForm()">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
